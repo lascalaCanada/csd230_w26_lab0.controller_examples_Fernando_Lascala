@@ -1,3 +1,5 @@
+.files2ignore
+ai_prompt-2026-01-04-15-36-csd230_w26_lab0.controller_examples.txt
 HELP.md
 target/
 !.mvn/wrapper/maven-wrapper.jar
