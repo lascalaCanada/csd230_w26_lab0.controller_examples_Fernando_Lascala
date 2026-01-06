@@ -4,6 +4,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Controller
 @RequestMapping("controller")
 public class ExampleController {
@@ -68,6 +71,21 @@ public class ExampleController {
         //logic here to save the employee object
         return "viewName";
     }
+    /*
+     * Returns a JSON list of all employees.
+     * URL: http://localhost:8080/controller/employees
+     */
+    @GetMapping(value = "/employees", produces = "application/json")
+    @ResponseBody // Necessary because the class is @Controller, not @RestController
+    public List<Employee> getAllEmployees() {
+        // Create a dummy list to simulate a database return
+        List<Employee> employeeList = new ArrayList<>();
 
+        employeeList.add(new Employee(1L, "Fred", "fred.carella@saultcollege.ca"));
+        employeeList.add(new Employee(2L, "Wilma", "wilma.flintstone@bedrock.com"));
+        employeeList.add(new Employee(3L, "Barney", "barney.rubble@bedrock.com"));
+
+        return employeeList;
+    }
 
 }
